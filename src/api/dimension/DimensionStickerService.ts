@@ -116,7 +116,7 @@ export class DimensionStickerService {
 
             const selectedPack = JSON.parse(JSON.stringify(pack));
             selectedPack.isSelected = userPack ? userPack.isSelected : false;
-            if (!selectedPack.isSelected && pack.trackingRoomAlias) continue;
+            //if (!selectedPack.isSelected && pack.trackingRoomAlias) continue;
             packs.push(selectedPack);
         }
 

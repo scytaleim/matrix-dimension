@@ -113,7 +113,8 @@ class _MatrixStickerBot {
 
                 const serverName = mxc.substring("mxc://".length).split("/")[0];
                 const contentId = mxc.substring("mxc://".length).split("/")[1];
-                stickerEvent.thumbMxc = await mx.uploadFromUrl(await mx.getThumbnailUrl(serverName, contentId, 512, 512, "scale", false), "image/png");
+                //stickerEvent.thumbMxc = await mx.uploadFromUrl(await mx.getThumbnailUrl(serverName, contentId, 512, 512, "scale", false), "image/png");
+                stickerEvent.thumbMxc = stickerEvent.contentUri; 
 
                 stickerEvents.push(stickerEvent);
             }
@@ -157,7 +158,7 @@ class _MatrixStickerBot {
                         thumbnailMxc: stickerEvent.thumbMxc,
                         thumbnailWidth: 512,
                         thumbnailHeight: 512,
-                        mimetype: "image/png",
+                        mimetype: stickerEvent.mimeType,
                     });
                 }
             }
